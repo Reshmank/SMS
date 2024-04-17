@@ -98,7 +98,7 @@
                     <label for="title" class="col-md-4 col-form-label text-md-end">Name <span class="error">*</span></label>
 
                             <div class="col-md-6">
-                            <input  onkeyup="createCode(this,'slug')" type="text" class="form-control required_item"  name="name" value="{{ old('name') }}" id="name">
+                            <input  onkeyup="createCode(this,'code')" type="text" class="form-control required_item"  name="name" value="{{ old('name') }}" id="name">
 
                             </div>
                         </div>
@@ -270,19 +270,11 @@
 
 <script>
 
+
+
+
  $(document).ready(function(){
 
-    function createCode(e,valueTo,uppercase=false,$prefix=""){
-     document.getElementById(valueTo).value = $prefix+e.value
-        .toLowerCase()
-        .replace(/ /g,'-')
-        .replace(/[^\w-]+/g,'')
-        ;
-    if(uppercase){
-        document.getElementById(valueTo).value = document.getElementById(valueTo).value.toUpperCase();
-    }
-    return true;
-}
 
      
      $('#varientForm').validate({ // initialize the validation
@@ -505,6 +497,19 @@
 
 
  }
+
+     function createCode(e,valueTo,uppercase=false,$prefix=""){
+     document.getElementById(valueTo).value = $prefix+e.value
+        .toLowerCase()
+        .replace(/ /g,'-')
+        .replace(/[^\w-]+/g,'')
+        ;
+    if(uppercase){
+        document.getElementById(valueTo).value = document.getElementById(valueTo).value.toUpperCase();
+    }
+    return true;
+}
+
 
 
    function deleteData(id)
